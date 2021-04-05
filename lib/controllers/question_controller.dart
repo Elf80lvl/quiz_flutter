@@ -1,4 +1,5 @@
 import 'package:flutter/animation.dart';
+import 'package:get/get.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
 import 'package:quiz_app_flutter/models/Questions.dart';
 
@@ -24,6 +25,21 @@ class QuestionController extends GetxController
 
   List<Question> get questions => this._questions;
 
+  bool _isAnswered = false;
+  bool get isAnswered => this._isAnswered;
+
+  int _correctAns;
+  int get correctAns => this._correctAns;
+
+  int _selectedAns;
+  int get selectedAns => this._selectedAns;
+
+  RxInt _questionNumber = 1.obs;
+  RxInt get questionNumber => this._questionNumber;
+
+  int _numOfCorrectAns;
+  int get numOfCorrectAns => this._numOfCorrectAns;
+
   @override
   void onInit() {
     //animation duration is 60. Need to fill the progress bar within 60 secs
@@ -37,5 +53,14 @@ class QuestionController extends GetxController
     //starts animation
     _animationController.forward();
     super.onInit();
+  }
+
+  void checkAns(Question question, int selectedIndex) {
+    //once user presses any option it will run
+    _isAnswered = true;
+    _correctAns = question.answer;
+    _selectedAns = selectedIndex;
+
+    if (_correctAns == _selectedAns) _numOfCorrectAns++;
   }
 }
