@@ -8,6 +8,7 @@ class WelcomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.grey[900],
       body: Stack(
         children: [
           // WebsafeSvg.asset(
@@ -35,7 +36,7 @@ class WelcomeScreen extends StatelessWidget {
                     style: Theme.of(context).textTheme.headline4.copyWith(
                         color: Colors.white, fontWeight: FontWeight.bold),
                   ),
-                  Text('data'),
+                  Text('Enter your info below'),
                   Spacer(),
                   TextField(
                     decoration: InputDecoration(
@@ -67,7 +68,7 @@ class WelcomeScreen extends StatelessWidget {
                         style: Theme.of(context)
                             .textTheme
                             .button
-                            .copyWith(color: Colors.black),
+                            .copyWith(color: Colors.white),
                       ),
                     ),
                   ),
